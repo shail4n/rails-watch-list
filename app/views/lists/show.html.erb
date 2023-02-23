@@ -1,0 +1,13 @@
+<div class="container">
+  <h1><%= @list.name %></h1>
+  <ul class='list-unstyled list-group'>
+  <% @list.bookmarks.each do |bookmark|%>
+  <li class='list-group-item'>
+  <p><%= bookmark.movie.title%></p>
+  <p><%= bookmark.comment %></p>
+  <p><%= link_to "delete", bookmark_path(bookmark),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
+  </li>
+  <% end %>
+  </ul>
+  <p><%= link_to 'Create Bookmark!', new_list_bookmark_path(@list)%></p>
+</div>
